@@ -1,0 +1,9 @@
+# Ashley's Sparkling Cleaning Company
+
+> Residential house cleaning in Michigan: routine (weekly, every 2 weeks, every 4 weeks), deep cleaning, and move-in/move-out cleaning, with customizable plans and add-ons such as interior windows, carpet shampoo, inside oven, and inside refrigerator. Tagline: "A cleaner home, brighter tomorrow." Call or text 248-924-4573.
+
+- [Home](https://www.example.com/): overview and services
+- [Services & estimated pricing](https://www.example.com/services/): what each cleaning includes, starting prices by home size, FAQ
+- [Free quote](https://www.example.com/quote/): quote request form with an instant estimate
+
+Prices on the site are estimates; the final price is confirmed by Ashley. Referral offer: $25 off a cleaning for referrals.
