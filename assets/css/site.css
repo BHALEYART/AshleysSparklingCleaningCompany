@@ -190,6 +190,20 @@ a:hover { color: var(--burg-900); }
     radial-gradient(50rem 30rem at -10% 110%, rgb(244 198 206 / 45%), transparent 60%),
     var(--cream);
 }
+/* Background photo: decorative. A cream wash keeps hero text at AA contrast. */
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 75% 50%; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgb(253 248 243 / 82%), rgb(253 248 243 / 92%) 60%);
+}
+/* Sparkles would sit on top of the stacked headline on small screens */
+@media (max-width: 979px) { .hero .sparkle { display: none; } }
+@media (min-width: 980px) {
+  .hero::before {
+    background: linear-gradient(90deg, rgb(253 248 243 / 96%) 0%, rgb(253 248 243 / 90%) 40%, rgb(253 248 243 / 45%) 62%, rgb(253 248 243 / 0%) 80%);
+  }
+}
 .hero .wrap { padding-block: clamp(2.5rem, 6vw, 5.5rem); }
 .hero-grid { display: grid; gap: 2.5rem; align-items: center; }
 @media (min-width: 980px) { .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
