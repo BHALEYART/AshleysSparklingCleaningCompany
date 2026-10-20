@@ -79,6 +79,55 @@
     }
   }
 
+  /* ---------- Before / after slider ----------
+     Mouse: press anywhere and drag. Touch: drag sideways (vertical swipes
+     still scroll the page) or tap to jump. Keyboard/screen readers use the
+     range input underneath. */
+  document.querySelectorAll("[data-ba]").forEach(function (ba) {
+    var range = ba.querySelector(".ba-range");
+    var labelBefore = ba.querySelector(".ba-label-before");
+    var labelAfter = ba.querySelector(".ba-label-after");
+    var dragging = false, moved = false, startX = 0;
+
+    function set(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      var n = Math.round(pct);
+      ba.style.setProperty("--pos", pct + "%");
+      range.value = n;
+      range.setAttribute("aria-valuetext", n + "% before, " + (100 - n) + "% after");
+      labelBefore.classList.toggle("is-hidden", pct < 14);
+      labelAfter.classList.toggle("is-hidden", pct > 86);
+    }
+    function fromPointer(e) {
+      var r = ba.getBoundingClientRect();
+      return (e.clientX - r.left) / r.width * 100;
+    }
+
+    range.addEventListener("input", function () { set(+range.value); });
+    ba.addEventListener("pointerdown", function (e) {
+      if (e.button > 0) return;
+      dragging = true; moved = false; startX = e.clientX;
+      if (e.pointerType === "mouse") {
+        e.preventDefault();
+        range.focus({ preventScroll: true });
+        set(fromPointer(e));
+      }
+      try { ba.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+    });
+    ba.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      if (!moved && e.pointerType !== "mouse" && Math.abs(e.clientX - startX) < 4) return;
+      moved = true;
+      set(fromPointer(e));
+    });
+    ba.addEventListener("pointerup", function (e) {
+      if (dragging && !moved && e.pointerType !== "mouse") set(fromPointer(e)); // tap to jump
+      dragging = false;
+    });
+    ba.addEventListener("pointercancel", function () { dragging = false; });
+    set(+range.value);
+  });
+
   /* ---------- Quote form ---------- */
   var form = document.getElementById("quote-form");
   if (!form) return;

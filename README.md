@@ -38,6 +38,10 @@ Editing that one file updates the live estimate on `/quote/`, the "starting at" 
 
 **The current numbers are placeholders for Ashley to review.** The site labels every price as an estimate, and the submitted estimate is included in the email so Ashley sees what the customer saw.
 
+## Before / after slider (home page)
+
+Images: `assets/img/ba-before-*` (dirty) and `assets/img/ba-after-*` (clean), each as `-800.webp`, `-1600.webp`, and `-1600.jpg` at 3:2 (1600×1067). **The current pair is a placeholder** made from the hero photo; replace both files in each pair with a matching before/after set shot from the same angle. If the room changes, update the two `alt` texts in `index.html`. The caption labels it as an illustration; if Ashley supplies real customer photos, change it to something like "A recent deep clean."
+
 ## Quote form
 
 Requests are emailed through [FormSubmit](https://formsubmit.co) (no account or key).
