@@ -40,7 +40,7 @@ Editing that one file updates the live estimate on `/quote/`, the "starting at" 
 
 ## Before / after slider (home page)
 
-Images: `assets/img/ba-before-*` (dirty) and `assets/img/ba-after-*` (clean), each as `-800.webp`, `-1600.webp`, and `-1600.jpg` at 3:2 (1600×1067). **The current pair is a placeholder** made from the hero photo; replace both files in each pair with a matching before/after set shot from the same angle. If the room changes, update the two `alt` texts in `index.html`. The caption labels it as an illustration; if Ashley supplies real customer photos, change it to something like "A recent deep clean."
+Images: `assets/img/ba-before-*` (dirty) and `assets/img/ba-after-*` (clean), each as `-800.webp`, `-1536.webp`, and `-1536.jpg` at 3:2 (1536×1024). Both images must be shot from the identical angle so they line up. If the room changes, update the two `alt` texts in `index.html`. The caption labels it as an illustration; if Ashley supplies real customer photos, change it to something like "A recent deep clean."
 
 ## Quote form
 
